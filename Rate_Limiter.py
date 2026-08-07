@@ -11,7 +11,7 @@ def rate_limiter(max_calls):
                 calls[username] = 1
                 status = "Accepted"
             if calls[username] > max_calls:
-                print(f"Dear {username} your quota has expired, please try again later!\n")
+                print(f"Dear {username} your quota has expired for api call{func.__name__}, please try again later!\n")
                 status = "Blocked"
                 history.append({
                     "username" : username,
@@ -89,6 +89,5 @@ login("Jansen")
 api_report("Vimal","login",history)
 api_report("Vimal","download_file",history)
 api_report("Jansen","login",history)
-
 
 print(history)
